@@ -1,0 +1,1 @@
+This is s WIP for creating a badging system with Algorand

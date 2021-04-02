@@ -1,0 +1,74 @@
+#pragma version 2
+txn TypeEnum
+int AssetTransfer
+==
+txn AssetSender
+global ZeroAddress
+==
+&&
+txn AssetCloseTo
+global ZeroAddress
+==
+&&
+txn AssetAmount
+int 0
+==
+&&
+txn XferAsset
+int 15039210
+==
+&&
+bnz finished
+//second clause
+global GroupSize
+int 2
+==
+gtxn 0 TypeEnum
+int pay
+==
+&&
+gtxn 1 TypeEnum
+int axfer
+==
+&&
+// asset id to trade for
+int 15039210
+gtxn 1 XferAsset
+==
+&&
+gtxn 0 Receiver
+addr GD64YIY3TWGDMCNPP553DZPPR6LDUSFQOIJVFDPPXWEG3FVOJCCDBBHU5A
+==
+&&
+txn Fee
+int 10000
+<
+&&
+gtxn 0 RekeyTo
+global ZeroAddress
+==
+&&
+gtxn 0 CloseRemainderTo
+global ZeroAddress
+==
+&& 
+gtxn 0 AssetCloseTo
+global ZeroAddress
+==
+&&
+gtxn 1 RekeyTo
+global ZeroAddress
+==
+&&
+gtxn 1 CloseRemainderTo
+global ZeroAddress
+==
+&& 
+gtxn 1 AssetCloseTo
+global ZeroAddress
+==
+&&
+return
+finished:
+int 1
+return
